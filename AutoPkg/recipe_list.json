@@ -1,8 +1,8 @@
 [
   "AWSCLI.munki.recipe",
   "Firefox.munki.recipe.yaml",
-  "GoogleChrome.munki.recipe",
-  "MSExcel.munki.recipe",
+  "GoogleChrome.pkg.recipe",
+  "MSExcel.munki",
   "MSOneNote.munki.recipe",
   "MSOutlook.munki.recipe",
   "MSPowerpoint.munki.recipe",
