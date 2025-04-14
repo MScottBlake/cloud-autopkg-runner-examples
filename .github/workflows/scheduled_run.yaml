@@ -82,7 +82,7 @@ jobs:
 
       - name: Run AutoPkg
         run: |
-          uv run autopkg-run \
+          uv run autopkg-run -v \
             --cache-file metadata_cache.json \
             --log-file autopkg_runner.log \
             --recipe-list "${{ steps.recipe_list.outputs.RECIPE_LIST }}"
