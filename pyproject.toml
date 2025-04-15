@@ -3,5 +3,5 @@ name = "cloud-autopkg-runner-examples"
 version = "0.0.0"
 requires-python = ">=3.10"
 dependencies = [
-    "cloud-autopkg-runner>=0.5.3",
+    "cloud-autopkg-runner>=0.9.3",
 ]
