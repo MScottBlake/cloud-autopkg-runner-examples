@@ -68,9 +68,10 @@ jobs:
       - name: Run AutoPkg
         run: |
           uv run autopkg-run -v \
-            --cache-file metadata_cache.json \
-            --log-file autopkg_runner.log \
             --recipe-list AutoPkg/recipe_list.json \
+            --cache-file metadata_cache.json \
+            --max-concurrency 5 \
+            --log-file autopkg_runner.log \
             --report-dir AutoPkg/Reports/
 
       - name: Upload Artifacts
