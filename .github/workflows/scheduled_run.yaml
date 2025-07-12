@@ -66,7 +66,7 @@ jobs:
 
       - name: Run AutoPkg
         run: |
-          uv run autopkg-run -v \
+          uv run cloud-autopkg-runner -v \
             --recipe-list AutoPkg/recipe_list.json \
             --cache-file metadata_cache.json \
             --log-file autopkg_runner.log \
