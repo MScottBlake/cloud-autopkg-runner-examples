@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.OktaVerify</string>
+	<key>Input</key>
+	<dict>
+		<key>DERIVE_MIN_OS</key>
+		<string>YES</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Security</string>
+		<key>extract_icon</key>
+		<true/>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/okta</string>
+		<key>NAME</key>
+		<string>OktaVerify</string>
+		<key>OKTA_DOMAIN</key>
+		<string>okta.com</string>
+		<key>OKTA_ORG</key>
+		<string>flywire</string>
+		<key>OKTA_RELEASE_CHANNEL</key>
+		<string>GA</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>description</key>
+			<string>Okta Verify is a lightweight multifactor authentication app that is used to register your device to Okta. Registering your device to Okta gives you passwordless authentication to apps, strong device-level security, and more.</string>
+			<key>developer</key>
+			<string>Okta</string>
+			<key>display_name</key>
+			<string>Okta Verify</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>#!/bin/zsh
+/usr/bin/killall "Okta Verify"
+/bin/rm -rf "/Applications/Okta Verify.app"
+pkgutil --forget com.okta.mobile
+exit 0
+            </string>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.nstrauss.munki.OktaVerify</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.nstrauss.download.OktaVerify</key>
+			<dict>
+				<key>git_hash</key>
+				<string>cfed2031ef693907001d30561b4b2b0e0fa596a9</string>
+				<key>path</key>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.nstrauss-recipes/Okta Verify/OktaVerify.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>cdcd1841ed92a813ea2d42fe02f776e8c680064efe0d18d45176e9d373ee3b0a</string>
+			</dict>
+			<key>com.github.nstrauss.munki.OktaVerify</key>
+			<dict>
+				<key>git_hash</key>
+				<string>883149e19464d0ee870e49c0ac3c7b9f20c0899e</string>
+				<key>path</key>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.nstrauss-recipes/Okta Verify/OktaVerify.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>ac2f69695db62176889117d26e32bdcb9354662e6067be907040435d199476b2</string>
+			</dict>
+			<key>com.github.nstrauss.pkg.OktaVerify</key>
+			<dict>
+				<key>git_hash</key>
+				<string>9a777028850d9ed208750d092848b34b7a851cd6</string>
+				<key>path</key>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.nstrauss-recipes/Okta Verify/OktaVerify.pkg.recipe</string>
+				<key>sha256_hash</key>
+				<string>3dfaceb34bc4f55a029ca996571364a3816f9da852231bc6373ed44be5c27d9a</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

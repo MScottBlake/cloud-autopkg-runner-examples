@@ -1,12 +1,15 @@
 [
+  "1Password.munki.recipe",
   "AWSCLI.munki.recipe",
   "Firefox.munki.recipe.yaml",
-  "GoogleChrome.pkg.recipe",
+  "GoogleChrome.munki.recipe",
   "MSExcel.munki",
   "MSOneNote.munki.recipe",
   "MSOutlook.munki.recipe",
   "MSPowerpoint.munki.recipe",
   "MSTeams.munki.recipe",
   "MSWord.munki.recipe",
+  "OktaVerify.munki.recipe",
+  "Slack-pkg.munki.recipe",
   "TheUnArchiver.munki"
 ]

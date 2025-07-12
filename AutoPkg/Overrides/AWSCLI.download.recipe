@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.download.AWSCLI</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>AWSCLI</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.homebysix.download.AWSCLI</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.homebysix.download.AWSCLI</key>
+			<dict>
+				<key>git_hash</key>
+				<string>b76a7d0419c0f028ed9275c474dbf7faf846fb40</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/Amazon/AWSCLI.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>a378a70d339946beb7b9f521a2848f3c21e40e168789b8f9ab554cee1853e544</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

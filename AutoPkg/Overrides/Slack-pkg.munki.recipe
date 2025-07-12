@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.Slack-pkg</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/slack</string>
+		<key>NAME</key>
+		<string>Slack</string>
+		<key>PKG_URL</key>
+		<string>https://slack.com/ssb/download-osx-universal-pkg</string>
+		<key>extract_icon</key>
+		<true/>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Collaboration</string>
+			<key>description</key>
+			<string>Slack is a platform for team communication: everything in one place, instantly searchable, available wherever you go.</string>
+			<key>developer</key>
+			<string>Slack Technologies, Inc.</string>
+			<key>display_name</key>
+			<string>Slack</string>
+			<key>icon_name</key>
+			<string>Slack.png</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.kevinmcox.munki.Slack-pkg</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.kevinmcox.download.Slack-pkg</key>
+			<dict>
+				<key>git_hash</key>
+				<string>278c0a944eff13091302b7472cda64222130a924</string>
+				<key>path</key>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.kevinmcox-recipes/Slack/Slack-pkg.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>24cd8bf78f87bdbc293af08d3df2e765008f391cf7513f8a69e570c27ebd75f0</string>
+			</dict>
+			<key>com.github.kevinmcox.munki.Slack-pkg</key>
+			<dict>
+				<key>git_hash</key>
+				<string>5a0db1a9f7aa69d3d9fa1f20c5789019479ffe4d</string>
+				<key>path</key>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.kevinmcox-recipes/Slack/Slack-pkg.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>640c1481bd1b83d65488430dc2e5ffdf1087cfcc461436dd1c02aaebc05516ee</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.makecatalogs</string>
+	<key>Input</key>
+	<dict>
+		<key>force_rebuild</key>
+		<true/>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.munki.makecatalogs</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>MakeCatalogsProcessor</key>
+			<dict>
+				<key>git_hash</key>
+				<string>a28e56e90ebc52512a4b7ec8fe1981bf02e92bc5</string>
+				<key>path</key>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Munki/MakeCatalogsProcessor.py</string>
+				<key>sha256_hash</key>
+				<string>bd223aca4da54c3b9ff0dcd6a643ccc0c023175277a410a052688f89b2212c22</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.autopkg.munki.makecatalogs</key>
+			<dict>
+				<key>path</key>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Munki/makecatalogs.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>0cbabc78985dae22f900aa9598002473a91a2a217cae407a319769be33545520</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

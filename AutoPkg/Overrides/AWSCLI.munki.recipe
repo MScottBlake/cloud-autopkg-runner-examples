@@ -6,17 +6,21 @@
 	<string>local.munki.AWSCLI</string>
 	<key>Input</key>
 	<dict>
+		<key>COMPUTE_HASHES</key>
+		<true/>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/utilities</string>
 		<key>NAME</key>
 		<string>AWSCLI</string>
+		<key>extract_icon</key>
+		<true/>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
 			<array/>
 			<key>catalogs</key>
 			<array>
-				<string>import</string>
+				<string>testing</string>
 			</array>
 			<key>category</key>
 			<string>Development</string>
@@ -47,7 +51,7 @@
 				<key>git_hash</key>
 				<string>b76a7d0419c0f028ed9275c474dbf7faf846fb40</string>
 				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/Amazon/AWSCLI.download.recipe</string>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/Amazon/AWSCLI.download.recipe</string>
 				<key>sha256_hash</key>
 				<string>a378a70d339946beb7b9f521a2848f3c21e40e168789b8f9ab554cee1853e544</string>
 			</dict>
@@ -56,7 +60,7 @@
 				<key>git_hash</key>
 				<string>0db41d4e7820321564ea23269da8146cc796742a</string>
 				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/Amazon/AWSCLI.munki.recipe</string>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/Amazon/AWSCLI.munki.recipe</string>
 				<key>sha256_hash</key>
 				<string>ce0cb8e673822e6d6838fa9a2ba11f457b1c8435bcf895c47288eb36ce7664e5</string>
 			</dict>

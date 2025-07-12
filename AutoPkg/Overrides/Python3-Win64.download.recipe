@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.download.Python3-Win64</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Python3Win64</string>
+		<key>COMPUTE_HASHES</key>
+		<true/>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.jgstew.download.Python3-Win64</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.jgstew.download.Python3-Win64</key>
+			<dict>
+				<key>git_hash</key>
+				<string>f9bce4b39fd62d5d3e9b4503c4ce3b7e3dd26951</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.jgstew.jgstew-recipes/Python3/Python3-Win64.download.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>ed164d541726bdfe90b3905611976f3859e3f3aac07074bfe3dbd2712b3abbb1</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

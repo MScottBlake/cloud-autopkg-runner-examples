@@ -1,9 +1,10 @@
 Identifier: local.munki.Firefox
 Input:
   LOCALE: en-US
-  MUNKI_REPO_SUBDIR: apps/firefox
+  MUNKI_REPO_SUBDIR: apps/browsers
   NAME: Firefox
   RELEASE: latest
+  extract_icon: true
   pkginfo:
     catalogs:
     - testing
@@ -16,14 +17,14 @@ ParentRecipeTrustInfo:
   non_core_processors:
     MozillaURLProvider:
       git_hash: a28e56e90ebc52512a4b7ec8fe1981bf02e92bc5
-      path: ~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Mozilla/MozillaURLProvider.py
+      path: /Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Mozilla/MozillaURLProvider.py
       sha256_hash: c4ce035b1a629c4925a80003899fcf39480e5224b3015613440f07ab96211f17
   parent_recipes:
     com.github.autopkg.download.firefox-rc-en_US:
       git_hash: 00f9b0ea8aa77716c0875f9aff6f1281cbf8d84d
-      path: ~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Mozilla/Firefox.download.recipe
+      path: /Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Mozilla/Firefox.download.recipe
       sha256_hash: 6d17ddeb226c88af7b4bdef7f981634f2da18403e0ebb86afeb5cfbdf4dc5237
     com.github.autopkg.munki.firefox-rc-en_US:
       git_hash: b8ebd97b7fc92cc4a9dc382ccc2ff8090c1b8f21
-      path: ~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Mozilla/Firefox.munki.recipe
+      path: /Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Mozilla/Firefox.munki.recipe
       sha256_hash: 3c0f6aa5c32194c854a6ff406525c603ffa5e33776d2509f574a7651fed3967d

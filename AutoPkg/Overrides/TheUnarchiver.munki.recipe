@@ -12,11 +12,13 @@
 		<string>TheUnarchiver</string>
 		<key>SPARKLE_FEED_URL</key>
 		<string>https://updates.devmate.com/com.macpaw.site.theunarchiver.xml</string>
+		<key>extract_icon</key>
+		<true/>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
-				<string>import</string>
+				<string>testing</string>
 			</array>
 			<key>category</key>
 			<string>Utilities</string>
@@ -49,18 +51,18 @@
 			<key>com.github.autopkg.download.TheUnarchiver</key>
 			<dict>
 				<key>git_hash</key>
-				<string>4c42f36018949ce59178d691bca7ce8a45d8c051</string>
+				<string>8bbd5d394315b3acf2d2cbe1653bf516cf88d546</string>
 				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/The Unarchiver/TheUnarchiver.download.recipe</string>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/The Unarchiver/TheUnarchiver.download.recipe</string>
 				<key>sha256_hash</key>
-				<string>d51ce7285a2d14b9643fc516b870958f1bdbe9a0fd9a5a426081e94a97d259de</string>
+				<string>3ff171d21eca7cfd4f2a47d12559ae17e1f8d2bf95da0e1c969d49fc32640bfa</string>
 			</dict>
 			<key>com.github.autopkg.munki.TheUnarchiver</key>
 			<dict>
 				<key>git_hash</key>
 				<string>3241629e0afa554fea7eeaf211b7e912ed75066b</string>
 				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/The Unarchiver/TheUnarchiver.munki.recipe</string>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/The Unarchiver/TheUnarchiver.munki.recipe</string>
 				<key>sha256_hash</key>
 				<string>2060af1b31867a607da2cfee1001ed19e1cc7bb7ce195fe137c97790dd469c21</string>
 			</dict>

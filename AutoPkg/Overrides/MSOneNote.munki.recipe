@@ -11,13 +11,15 @@
 		<key>LOCALE_ID</key>
 		<string>1033</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/office</string>
+		<string>apps/microsoft</string>
 		<key>NAME</key>
 		<string>MSOneNote</string>
 		<key>PRODUCT</key>
 		<string>OneNote2019</string>
 		<key>VERSION</key>
 		<string>latest</string>
+		<key>extract_icon</key>
+		<true/>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -28,7 +30,7 @@
 			</array>
 			<key>catalogs</key>
 			<array>
-				<string>import</string>
+				<string>testing</string>
 			</array>
 			<key>category</key>
 			<string>Office</string>
@@ -57,11 +59,11 @@
 			<key>MSOfficeMacURLandUpdateInfoProvider</key>
 			<dict>
 				<key>git_hash</key>
-				<string>e5adee3cf2f31cc1a0a62d246eb16bf185e2dc12</string>
+				<string>2d68a0454fd0fb1711f43bd3b31a5c93e508f0a8</string>
 				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/MSOfficeUpdates/MSOfficeMacURLandUpdateInfoProvider.py</string>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/MSOfficeUpdates/MSOfficeMacURLandUpdateInfoProvider.py</string>
 				<key>sha256_hash</key>
-				<string>acd21eb22750624e87219c7af8f0755eedbb4d42be403471ab1859d18b4c6169</string>
+				<string>1361330c7cf9e255839b67b1f0a57f255bb3287abe83f6898c391bc148750e91</string>
 			</dict>
 		</dict>
 		<key>parent_recipes</key>
@@ -71,7 +73,7 @@
 				<key>git_hash</key>
 				<string>db02edcc4fad1325e3f44ea31aa387a4ad39c998</string>
 				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/MSOfficeUpdates/MSOfficeMacProduct.download.recipe</string>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/MSOfficeUpdates/MSOfficeMacProduct.download.recipe</string>
 				<key>sha256_hash</key>
 				<string>c7f9b0fa0e3634c0aab69e3248da0dca823e0749304a70c45272bbcb9db84df8</string>
 			</dict>
@@ -80,7 +82,7 @@
 				<key>git_hash</key>
 				<string>55e47128864841e568cf20ccd2b852fea48faa50</string>
 				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/MSOfficeUpdates/MSOneNote2019.download.recipe</string>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/MSOfficeUpdates/MSOneNote2019.download.recipe</string>
 				<key>sha256_hash</key>
 				<string>66554dcb05aa2fdaefc130d9bebf6c282302d264014046b77f80aeaee44d0a1d</string>
 			</dict>
@@ -89,7 +91,7 @@
 				<key>git_hash</key>
 				<string>55e47128864841e568cf20ccd2b852fea48faa50</string>
 				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/MSOfficeUpdates/MSOneNote2019.munki.recipe</string>
+				<string>/Users/Shared/PSU Demos/AutoPkg/RecipeRepos/com.github.autopkg.recipes/MSOfficeUpdates/MSOneNote2019.munki.recipe</string>
 				<key>sha256_hash</key>
 				<string>d4017773cfc39fe62d32ae3f255fa3fad9cbe985ec2bf2cfa79f997ec5bc2498</string>
 			</dict>
