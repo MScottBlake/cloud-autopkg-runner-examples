@@ -12,7 +12,6 @@
   "OktaVerify.munki.recipe",
   "Slack-pkg.munki.recipe",
   "TheUnArchiver.munki.recipe",
-  "Bartender.munki.recipe",
   "Cyberduck.pkg.recipe",
   "Eclipse.munki.recipe",
   "Figma-Universal.pkg.recipe",
