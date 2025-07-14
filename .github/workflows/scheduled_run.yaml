@@ -48,8 +48,8 @@ jobs:
 
       - name: Configure AutoPkg
         run: |
-          AUTOPKG_DIR="AutoPkg"
-          MUNKI_DIR="Munki"
+          AUTOPKG_DIR="${GITHUB_WORKSPACE}/AutoPkg"
+          MUNKI_DIR="${GITHUB_WORKSPACE}/Munki"
 
           defaults write com.github.autopkg CACHE_DIR "${AUTOPKG_DIR}/Cache"
           defaults write com.github.autopkg FAIL_RECIPES_WITHOUT_TRUST_INFO -bool TRUE
