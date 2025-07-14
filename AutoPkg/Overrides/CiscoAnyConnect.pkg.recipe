@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.pkg.CiscoAnyConnect</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Cisco AnyConnect Secure Mobility Client</string>
+		<key>VPN_XML</key>
+		<string>example.xml</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.grahampugh.recipes.pkg.CiscoAnyConnect</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>com.github.grahampugh.recipes.commonprocessors/ChoicesXMLGenerator</key>
+			<dict>
+				<key>git_hash</key>
+				<string>c457a0f8d61dac3a1c481b7481fe9a3b96751919</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.grahampugh-recipes/CommonProcessors/ChoicesXMLGenerator.py</string>
+				<key>sha256_hash</key>
+				<string>8d0b6fb87252b9d51a99c475f99356a5ab8510a14274a05d7efa528797c33ca8</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.grahampugh.recipes.pkg.CiscoAnyConnect</key>
+			<dict>
+				<key>git_hash</key>
+				<string>bbb50d0b968fc8ee93029be66c5dd866d374d3a3</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.grahampugh-recipes/CiscoAnyConnect/CiscoAnyConnect.pkg.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>1f25da5e731a74f22fed3d82313857bdeb448756728e44f5c353167027dc0cdb</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

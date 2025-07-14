@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.pkg.R</string>
+	<key>Input</key>
+	<dict>
+		<key>ARCH</key>
+		<string>x86_64</string>
+		<key>NAME</key>
+		<string>R</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.homebysix.pkg.R</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>RProjectURLProvider</key>
+			<dict>
+				<key>git_hash</key>
+				<string>cecb7b4f782a8f6b59f029d30a544df0e07c5548</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/R/RProjectURLProvider.py</string>
+				<key>sha256_hash</key>
+				<string>1cdc7c6b4fab8e40eb3d67f84aa943329b031571bb7356fe6a01681a60f0f82f</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.homebysix.download.R</key>
+			<dict>
+				<key>git_hash</key>
+				<string>103b08a500619aec18d6a7b507b1b9d1f4165a95</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/R/R.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>2555cce1ed912c339cdf3e27804fec3cd99b118553958ff09928c89cec47f4b9</string>
+			</dict>
+			<key>com.github.homebysix.pkg.R</key>
+			<dict>
+				<key>git_hash</key>
+				<string>103b08a500619aec18d6a7b507b1b9d1f4165a95</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/R/R.pkg.recipe</string>
+				<key>sha256_hash</key>
+				<string>fd0ebe7a9d727791e3da3e30663aa674c19c71ee5653002e984a4edc2eeeb587</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

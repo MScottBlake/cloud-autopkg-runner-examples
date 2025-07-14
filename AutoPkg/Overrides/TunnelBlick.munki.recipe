@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.TunnelBlick</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>Tunnelblick</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Tunnelblick is a Mac app that lets you easily connect to OpenVPN.</string>
+			<key>developer</key>
+			<string>The Tunnelblick Project</string>
+			<key>display_name</key>
+			<string>Tunnelblick</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/sh
+# based on forum discussion:
+# https://groups.google.com/forum/#!topic/tunnelblick-discuss/UYeR7vv_rXM
+
+# setup folders and secure Tunnelblick app
+/Applications/Tunnelblick.app/Contents/Resources/installer 5
+
+# secure configurations
+/Applications/Tunnelblick.app/Contents/Resources/installer 16
+			</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.homebysix.munki.Tunnelblick</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.homebysix.download.Tunnelblick</key>
+			<dict>
+				<key>git_hash</key>
+				<string>6dff1576d76f1038398d4a522e2aadd8766f660c</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/Tunnelblick/Tunnelblick.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>fc4d9d5f19c86da0f95fd6d9c0ebb668d5c3c61e33ec5e87c2eea575eb721d66</string>
+			</dict>
+			<key>com.github.homebysix.munki.Tunnelblick</key>
+			<dict>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.homebysix-recipes/Tunnelblick/TunnelBlick.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>38d2b96126ea6efa224097377ff6ddfdd8e98ea335d2c400961aebf7b53d7731</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.pkg.Figma-Universal</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Figma</string>
+		<key>URL_ARM64</key>
+		<string>https://desktop.figma.com/mac-arm/Figma.zip</string>
+		<key>URL_X86_64</key>
+		<string>https://desktop.figma.com/mac/Figma.zip</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.smithjw.pkg.Figma-Universal</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>com.github.smithjw.processors/FriendlyPathDeleter</key>
+			<dict>
+				<key>git_hash</key>
+				<string>c26a799a9933074405c283ed2041d94cebab027f</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/SharedProcessors/FriendlyPathDeleter.py</string>
+				<key>sha256_hash</key>
+				<string>0b6bd25a9286ce875da80ca2a8e61bdb59b79214d5d1e5f465eab14b5d607e6c</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.smithjw.download.Figma-Universal</key>
+			<dict>
+				<key>git_hash</key>
+				<string>849955822c69b5ef28685f47662cdd9348173d96</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/Figma/Figma-Universal.download.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>3f14ff2c13a53e9431850e9269098fa313cfd271d365d2f4886c38ae58116720</string>
+			</dict>
+			<key>com.github.smithjw.pkg.Figma-Universal</key>
+			<dict>
+				<key>git_hash</key>
+				<string>849955822c69b5ef28685f47662cdd9348173d96</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/Figma/Figma-Universal.pkg.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>6ce321e70622be3331e20ff8a340c1959503ccbc66e836379d56a01ac60353ea</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

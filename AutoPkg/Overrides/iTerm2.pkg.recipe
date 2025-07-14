@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.pkg.iTerm2</string>
+	<key>Input</key>
+	<dict>
+		<key>DOWNLOAD_URL</key>
+		<string>https://iterm2.com/downloads/stable/latest</string>
+		<key>NAME</key>
+		<string>iTerm2</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.smithjw.pkg.iterm2</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>com.github.smithjw.processors/FriendlyPathDeleter</key>
+			<dict>
+				<key>git_hash</key>
+				<string>c26a799a9933074405c283ed2041d94cebab027f</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/SharedProcessors/FriendlyPathDeleter.py</string>
+				<key>sha256_hash</key>
+				<string>0b6bd25a9286ce875da80ca2a8e61bdb59b79214d5d1e5f465eab14b5d607e6c</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.smithjw.download.iterm2</key>
+			<dict>
+				<key>git_hash</key>
+				<string>2d326fa3d71fc9f470c48aec9f57581837929eab</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/iTerm2/iTerm2.download.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>b35c22ca43ee2d312459d93fa8209ac54cae1eed246db228c0fbe55ca030b0b2</string>
+			</dict>
+			<key>com.github.smithjw.pkg.iterm2</key>
+			<dict>
+				<key>git_hash</key>
+				<string>2e4a63c08157f400040db145d8d8deb64160d192</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/iTerm2/iTerm2.pkg.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>cb4bc771f27be804ddc66bbd50c4af5254237b533a8de0b75eef339a2b99b2e6</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

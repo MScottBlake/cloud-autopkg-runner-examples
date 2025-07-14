@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.pkg.Little_Snitch_5</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Little Snitch 5</string>
+		<key>SOFTWARE_TITLE</key>
+		<string>Little_Snitch</string>
+		<key>USER_AGENT</key>
+		<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.smithjw.pkg.LittleSnitch5</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.smithjw.download.LittleSnitch5</key>
+			<dict>
+				<key>git_hash</key>
+				<string>66d44475bf49a9b619bfb48fbc601c2d6ef8294b</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/Little Snitch/Little_Snitch_5.download.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>4e5cfffab6f9f3db8c7bfe06f85415110a81f7be24a9522ea62498b4eba635fa</string>
+			</dict>
+			<key>com.github.smithjw.pkg.LittleSnitch5</key>
+			<dict>
+				<key>git_hash</key>
+				<string>66d44475bf49a9b619bfb48fbc601c2d6ef8294b</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/Little Snitch/Little_Snitch_5.pkg.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>c46b464113279b9078fb47ee214beaccfa763547f10bf40928cb7f4498f8eab9</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

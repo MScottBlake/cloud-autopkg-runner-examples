@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.pkg.Cyberduck</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Cyberduck</string>
+		<key>SPARKLE_FEED_URL</key>
+		<string>https://version.cyberduck.io/changelog.rss</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.pkg.Cyberduck</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.autopkg.download.Cyberduck</key>
+			<dict>
+				<key>git_hash</key>
+				<string>c9fac2f0894ecab4a60b544bd9fd204fa0a561fe</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Cyberduck/Cyberduck.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>54a1740bef5711a9cda12c2acad8e103bacd4528411ad4e98ac908c308279149</string>
+			</dict>
+			<key>com.github.autopkg.pkg.Cyberduck</key>
+			<dict>
+				<key>git_hash</key>
+				<string>f29f399c54adee7122e9fdc3c1ea7ed4c67388a4</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/Cyberduck/Cyberduck.pkg.recipe</string>
+				<key>sha256_hash</key>
+				<string>1318ea448ffeee79a85c59f333597b147d627a257db88335916e823ca7739f3d</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.pkg.IntelliJ-IDEA-CE</string>
+	<key>Input</key>
+	<dict>
+		<key>ARCH</key>
+		<string>intel</string>
+		<key>NAME</key>
+		<string>Intellij IDEA CE</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.grahampugh.recipes.pkg.IntelliJ-IDEA-CE</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>IntellijURLProvider</key>
+			<dict>
+				<key>git_hash</key>
+				<string>a2d4f7bc18c2b403812b10846a45cfc3717a0448</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.grahampugh-recipes/Intellij/IntellijURLProvider.py</string>
+				<key>sha256_hash</key>
+				<string>030a7666ac82906d18ae3785ac3dbb7b42979559d0348bc842e0d01e95c2d178</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.grahampugh.recipes.download.IntelliJ-IDEA-CE</key>
+			<dict>
+				<key>git_hash</key>
+				<string>644c49898b3f32788a9bb0811ef411c6d025fa10</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.grahampugh-recipes/Intellij/IntelliJ-IDEA-CE.download.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>5b80eb8a188da1357845020745c0edb5e1140f3c8572f77fdaf36e8394ba87d5</string>
+			</dict>
+			<key>com.github.grahampugh.recipes.pkg.IntelliJ-IDEA-CE</key>
+			<dict>
+				<key>git_hash</key>
+				<string>b02a3eab0fae860ecac94be02a67e3a4d72f3ed2</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.grahampugh-recipes/Intellij/IntelliJ-IDEA-CE.pkg.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>d19b433501f6e538289c2161268bde630810aa6e22a9ed759d44ed707be461be</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

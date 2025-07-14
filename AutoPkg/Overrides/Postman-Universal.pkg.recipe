@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.pkg.Postman-Universal</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Postman</string>
+		<key>URL_ARM64</key>
+		<string>https://dl.pstmn.io/download/latest/osx_arm64</string>
+		<key>URL_X86_64</key>
+		<string>https://dl.pstmn.io/download/latest/osx_64</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.smithjw.pkg.Postman-Universal</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>com.github.smithjw.processors/FriendlyPathDeleter</key>
+			<dict>
+				<key>git_hash</key>
+				<string>c26a799a9933074405c283ed2041d94cebab027f</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/SharedProcessors/FriendlyPathDeleter.py</string>
+				<key>sha256_hash</key>
+				<string>0b6bd25a9286ce875da80ca2a8e61bdb59b79214d5d1e5f465eab14b5d607e6c</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.smithjw.download.Postman-Universal</key>
+			<dict>
+				<key>git_hash</key>
+				<string>849955822c69b5ef28685f47662cdd9348173d96</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/Postman/Postman-Universal.download.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>e7f280d312b8ae5b8b40556cbac6820c74d205f8a72a352656e1c2fa7e9d2dc0</string>
+			</dict>
+			<key>com.github.smithjw.pkg.Postman-Universal</key>
+			<dict>
+				<key>git_hash</key>
+				<string>849955822c69b5ef28685f47662cdd9348173d96</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.smithjw-recipes/Postman/Postman-Universal.pkg.recipe.yaml</string>
+				<key>sha256_hash</key>
+				<string>deaaf55133a98001536a1f441e7da23363a21f5e0271551378ce7164526081b7</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
