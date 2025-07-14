@@ -12,9 +12,7 @@
   "OktaVerify.munki.recipe",
   "Slack-pkg.munki.recipe",
   "TheUnArchiver.munki.recipe",
-  "AdobeReader.pkg.recipe",
   "Bartender.munki.recipe",
-  "BBEdit.munki.recipe",
   "Cyberduck.pkg.recipe",
   "Dropbox.munki.recipe",
   "Eclipse.munki.recipe",
@@ -29,6 +27,5 @@
   "Spotify.munki.recipe",
   "TunnelBlick.munki.recipe",
   "VLC.munki.recipe",
-  "Wireshark.munki.recipe",
-  "Xcode.pkg.recipe"
+  "Wireshark.munki.recipe"
 ]
