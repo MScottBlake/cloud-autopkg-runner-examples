@@ -11,19 +11,5 @@
   "MSWord.munki.recipe",
   "OktaVerify.munki.recipe",
   "Slack-pkg.munki.recipe",
-  "TheUnArchiver.munki.recipe",
-  "Cyberduck.pkg.recipe",
-  "Eclipse.munki.recipe",
-  "Figma-Universal.pkg.recipe",
-  "iMazing.munki.recipe",
-  "IntelliJ-IDEA-CE.pkg.recipe",
-  "iTerm2.pkg.recipe",
-  "Little_Snitch_5.pkg.recipe",
-  "ParallelsDesktop.munki.recipe",
-  "Postman-Universal.pkg.recipe",
-  "R.pkg.recipe",
-  "Spotify.munki.recipe",
-  "TunnelBlick.munki.recipe",
-  "VLC.munki.recipe",
-  "Wireshark.munki.recipe"
+  "TheUnArchiver.munki.recipe"
 ]
