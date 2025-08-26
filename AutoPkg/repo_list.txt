@@ -1,4 +1,4 @@
-https://github.com/autopkg/datajar-recipes.git
+https://github.com/autopkg/dataJAR-recipes.git
 https://github.com/autopkg/grahampugh-recipes.git
 https://github.com/autopkg/homebysix-recipes.git
 https://github.com/autopkg/kevinmcox-recipes.git
