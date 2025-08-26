@@ -55,8 +55,12 @@ async def process_recipe(recipe_path: Path, git_repo_root: Path) -> None:
 
     logger.info("Processing %s", recipe_name)
     async with worktree(GitClient(git_repo_root), worktree_path, branch) as client:
-        await Recipe(recipe_path).run()
-        logger.info("Recipe %s complete", recipe_name)
+        try:
+            await Recipe(recipe_path).run()
+            logger.info("Recipe %s complete", recipe_name)
+        except Exception as e:
+            logger.error("Recipe %s failed: %s", recipe_name, e)
+            return
 
         status = await client.status(porcelain=True)
         if not status.strip():
