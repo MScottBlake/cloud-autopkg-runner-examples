@@ -68,10 +68,13 @@ jobs:
 
       - name: AutoPkg Repo Add
         run: |
+          defaults read com.github.autopkg
           cat "AutoPkg/repo_list.txt" | xargs autopkg repo-add
+          defaults read com.github.autopkg
 
       - name: Run AutoPkg
         run: |
+          defaults read com.github.autopkg
           uv run examples/git_worktree_example.py
 
       - name: Upload Artifacts
