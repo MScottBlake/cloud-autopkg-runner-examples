@@ -22,6 +22,7 @@ async def worktree(
     try:
         yield GitClient(path)
     finally:
+        await client.prune_worktrees()
         await client.remove_worktree(path=path, force=True)
 
 
