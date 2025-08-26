@@ -94,7 +94,7 @@ async def main() -> None:
     settings.cache_file = "metadata_cache.json"
     settings.log_file = Path("autopkg_runner.log")
     settings.report_dir = autopkg_dir / "Reports"
-    settings.verbosity_level = 3
+    settings.verbosity_level = 2
 
     print(AutoPkgPrefs().to_json(2))
 
@@ -103,15 +103,12 @@ async def main() -> None:
     recipe_finder = RecipeFinder()
     recipe_list = json.loads((autopkg_dir / "recipe_list.json").read_text())
     recipe_paths = [await recipe_finder.find_recipe(r) for r in recipe_list]
-    # recipe_paths: list[Path] = []
-    # for r in recipe_list:
-    #     path = await recipe_finder.find_recipe(r)
-    #     print("Resolved recipe %s -> %s", r, path)
-    #     recipe_paths.append(path)
 
-    await asyncio.gather(
-        *(process_recipe(recipe, git_repo_root) for recipe in recipe_paths)
-    )
+    # await asyncio.gather(
+    #     *(process_recipe(recipe, git_repo_root) for recipe in recipe_paths)
+    # )
+    for recipe in recipe_paths:
+        await process_recipe(recipe, git_repo_root)
 
 
 if __name__ == "__main__":
