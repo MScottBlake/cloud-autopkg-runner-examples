@@ -4,6 +4,9 @@ on:
   # schedule:
   #   - cron: "0 0 * * *"  # Adjust schedule as needed
   workflow_dispatch:  # Enables manual triggering
+  push:
+    branches:
+      - git-example
 
 jobs:
   autopkg-run:
