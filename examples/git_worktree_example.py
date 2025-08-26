@@ -87,11 +87,16 @@ async def main() -> None:
     settings.cache_file = "metadata_cache.json"
     settings.log_file = Path("autopkg_runner.log")
     settings.report_dir = autopkg_dir / "Reports"
-    settings.verbosity_level = 2
+    settings.verbosity_level = 3
 
     recipe_finder = RecipeFinder()
     recipe_list = json.loads((autopkg_dir / "recipe_list.json").read_text())
-    recipe_paths = [await recipe_finder.find_recipe(r) for r in recipe_list]
+    # recipe_paths = [await recipe_finder.find_recipe(r) for r in recipe_list]
+    recipe_paths: list[Path] = []
+    for r in recipe_list:
+        path = await recipe_finder.find_recipe(r)
+        logger.info("Resolved recipe %s -> %s", r, path)
+        recipe_paths.append(path)
 
     await asyncio.gather(
         *(process_recipe(path, git_repo_root) for path in recipe_paths)
