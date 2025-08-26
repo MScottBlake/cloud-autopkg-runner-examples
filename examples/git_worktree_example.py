@@ -1,15 +1,21 @@
 import asyncio
 import json
-import logging
 import os
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-from cloud_autopkg_runner import GitClient, Recipe, RecipeFinder, Settings, shell
+from cloud_autopkg_runner import (
+    GitClient,
+    Recipe,
+    RecipeFinder,
+    Settings,
+    shell,
+    logging_config,
+)
 
-logger = logging.getLogger(__name__)
+logger = logging_config.get_logger(__name__)
 
 
 @asynccontextmanager
