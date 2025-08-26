@@ -7,13 +7,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from cloud_autopkg_runner import (
-    AutoPkgPrefs,
     GitClient,
     Recipe,
     RecipeFinder,
     Settings,
-    shell,
     logging_config,
+    shell,
 )
 
 
@@ -70,6 +69,7 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
             return
 
         status = await client.status(porcelain=True)
+        logger.debug(f"Status: {status}")
         if not status.strip():
             logger.info("No changes to commit for %s", recipe_name)
             return
@@ -94,9 +94,7 @@ async def main() -> None:
     settings.cache_file = "metadata_cache.json"
     settings.log_file = Path("autopkg_runner.log")
     settings.report_dir = autopkg_dir / "Reports"
-    settings.verbosity_level = 2
-
-    print(AutoPkgPrefs().to_json(2))
+    settings.verbosity_level = 3
 
     logging_config.initialize_logger(settings.verbosity_level, str(settings.log_file))
 
