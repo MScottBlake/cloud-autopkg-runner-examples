@@ -51,7 +51,7 @@ async def process_recipe(recipe_path: Path, git_repo_root: Path) -> None:
     recipe_name = recipe_path.stem
     now = datetime.now(timezone.utc)
     branch = f"autopkg/{recipe_name}-{now:%Y%m%d%H%M%S}"
-    worktree_path = git_repo_root.parent / f"worktree-{recipe_name}"
+    worktree_path = git_repo_root.parent / f"worktree-{recipe_name}-{now:%Y%m%d%H%M%S}"
 
     logger.info("Processing %s", recipe_name)
     async with worktree(GitClient(git_repo_root), worktree_path, branch) as client:
