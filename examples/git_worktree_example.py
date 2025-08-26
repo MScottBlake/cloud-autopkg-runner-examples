@@ -6,9 +6,14 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-from cloud_autopkg_runner import GitClient, Recipe, Settings, shell, logging_config
-
-logger = logging_config.get_logger(__name__)
+from cloud_autopkg_runner import (
+    GitClient,
+    Recipe,
+    RecipeFinder,
+    Settings,
+    shell,
+    logging_config,
+)
 
 
 @asynccontextmanager
@@ -27,6 +32,7 @@ async def worktree(
 
 async def create_pull_request(branch: str, recipe: str) -> None:
     """Create a GitHub PR for the given branch using GitHub CLI."""
+    logger = logging_config.get_logger(__name__)
     repo = os.environ["GITHUB_REPOSITORY"]  # owner/repo
     cmd = [
         "gh",
@@ -45,16 +51,18 @@ async def create_pull_request(branch: str, recipe: str) -> None:
         logger.error("Failed to create PR for %s: %s", recipe, e)
 
 
-async def process_recipe(recipe_name: str, git_repo_root: Path) -> None:
+async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
     """Run a recipe in its own branch and submit a PR if changes exist."""
+    recipe_name = recipe.stem
     now = datetime.now(timezone.utc)
     branch = f"autopkg/{recipe_name}-{now:%Y%m%d%H%M%S}"
     worktree_path = git_repo_root.parent / f"worktree-{recipe_name}-{now:%Y%m%d%H%M%S}"
+    logger = logging_config.get_logger(__name__)
 
     logger.info("Processing %s", recipe_name)
     async with worktree(GitClient(git_repo_root), worktree_path, branch) as client:
         try:
-            await Recipe(Path(recipe_name)).run()
+            await Recipe(recipe).run()
             logger.info("Recipe %s complete", recipe_name)
         except Exception as e:
             logger.error("Recipe %s failed: %s", recipe_name, e)
@@ -87,9 +95,11 @@ async def main() -> None:
     settings.report_dir = autopkg_dir / "Reports"
     settings.verbosity_level = 3
 
-    # recipe_finder = RecipeFinder()
+    logging_config.initialize_logger(settings.verbosity_level, str(settings.log_file))
+
+    recipe_finder = RecipeFinder()
     recipe_list = json.loads((autopkg_dir / "recipe_list.json").read_text())
-    # recipe_paths = [await recipe_finder.find_recipe(r) for r in recipe_list]
+    recipe_paths = [await recipe_finder.find_recipe(r) for r in recipe_list]
     # recipe_paths: list[Path] = []
     # for r in recipe_list:
     #     path = await recipe_finder.find_recipe(r)
@@ -97,7 +107,7 @@ async def main() -> None:
     #     recipe_paths.append(path)
 
     await asyncio.gather(
-        *(process_recipe(recipe, git_repo_root) for recipe in recipe_list)
+        *(process_recipe(recipe, git_repo_root) for recipe in recipe_paths)
     )
 
 
