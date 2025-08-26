@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from cloud_autopkg_runner import (
+    AutoPkgPrefs,
     GitClient,
     Recipe,
     RecipeFinder,
@@ -94,6 +95,8 @@ async def main() -> None:
     settings.log_file = Path("autopkg_runner.log")
     settings.report_dir = autopkg_dir / "Reports"
     settings.verbosity_level = 3
+
+    print(AutoPkgPrefs().to_json(2))
 
     logging_config.initialize_logger(settings.verbosity_level, str(settings.log_file))
 
