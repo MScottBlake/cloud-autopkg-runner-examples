@@ -3,5 +3,12 @@ name = "cloud-autopkg-runner-examples"
 version = "0.0.0"
 requires-python = ">=3.10"
 dependencies = [
-    "cloud-autopkg-runner>=0.14.12",
+    "cloud-autopkg-runner>=0.18.0",
 ]
+
+[tool.pyright]
+extraPaths = ["."]
+include = ["."]
+typeCheckingMode = "strict"
+venvPath = "."
+venv = ".venv"
