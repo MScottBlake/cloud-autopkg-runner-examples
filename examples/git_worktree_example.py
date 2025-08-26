@@ -7,7 +7,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-from cloud_autopkg_runner import GitClient, Recipe, Settings, shell
+from cloud_autopkg_runner import GitClient, Recipe, RecipeFinder, Settings, shell
 
 logger = logging.getLogger(__name__)
 
@@ -84,8 +84,9 @@ async def main() -> None:
     settings.log_file = Path("autopkg_runner.log")
     settings.report_dir = autopkg_dir / "Reports"
 
+    recipe_finder = RecipeFinder()
     recipe_list = json.loads((autopkg_dir / "recipe_list.json").read_text())
-    recipe_paths = [Path(p) for p in recipe_list]
+    recipe_paths = [await recipe_finder.find_recipe(r) for r in recipe_list]
 
     await asyncio.gather(
         *(process_recipe(path, git_repo_root) for path in recipe_paths)
