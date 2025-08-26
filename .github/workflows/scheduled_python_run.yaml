@@ -62,6 +62,7 @@ jobs:
           defaults write com.github.autopkg GITHUB_TOKEN "${{ secrets.GITHUB_TOKEN }}"
           defaults write com.github.autopkg MUNKI_REPO "${MUNKI_DIR}"
           defaults write com.github.autopkg RECIPE_OVERRIDE_DIRS "${AUTOPKG_DIR}/Overrides"
+          defaults write com.github.autopkg RECIPE_REPO_DIR "${AUTOPKG_DIR}/RecipeRepos"
 
           mkdir -p "${MUNKI_DIR}/pkgs"
 
