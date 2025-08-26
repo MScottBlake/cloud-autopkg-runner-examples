@@ -17,6 +17,7 @@ async def worktree(
     client: GitClient, path: Path, branch: str
 ) -> AsyncGenerator[GitClient]:
     """Create a git worktree for a branch, then remove it on exit."""
+    await client.branch(branch_name=branch)
     await client.add_worktree(path=path, branch_or_commit=branch)
     try:
         yield GitClient(path)
