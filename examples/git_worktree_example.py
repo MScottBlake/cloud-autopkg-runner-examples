@@ -101,7 +101,7 @@ async def main() -> None:
     recipe_paths: list[Path] = []
     for r in recipe_list:
         path = await recipe_finder.find_recipe(r)
-        logger.info("Resolved recipe %s -> %s", r, path)
+        print("Resolved recipe %s -> %s", r, path)
         recipe_paths.append(path)
 
     await asyncio.gather(
