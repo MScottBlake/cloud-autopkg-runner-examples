@@ -83,6 +83,7 @@ async def main() -> None:
     settings.cache_file = "metadata_cache.json"
     settings.log_file = Path("autopkg_runner.log")
     settings.report_dir = autopkg_dir / "Reports"
+    settings.verbosity_level = 2
 
     recipe_finder = RecipeFinder()
     recipe_list = json.loads((autopkg_dir / "recipe_list.json").read_text())
