@@ -62,7 +62,7 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
     base_git_client = GitClient(git_repo_root)
 
     logger.info("Processing %s", recipe_name)
-    async with worktree(base_git_client, worktree_path, branch) as client:
+    async with worktree(base_git_client, worktree_path, branch):
         try:
             await Recipe(recipe).run()
             logger.info("Recipe %s complete", recipe_name)
@@ -76,12 +76,12 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
         #     logger.info("No changes to commit for %s", recipe_name)
         #     return
 
-        await client.add("Munki/")
-        await client.commit(
+        await base_git_client.add("Munki/")
+        await base_git_client.commit(
             message=f"AutoPkg {recipe_name} {now.isoformat(timespec='seconds')}",
             all_changes=True,
         )
-        await client.push(branch=branch, set_upstream=True)
+        await base_git_client.push(branch=branch, set_upstream=True)
         logger.info("Pushed branch %s", branch)
 
         await create_pull_request(branch, recipe_name)
