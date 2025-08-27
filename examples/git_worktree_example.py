@@ -77,7 +77,7 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
         #     logger.info("No changes to commit for %s", recipe_name)
         #     return
 
-        await client.add("Munki/")
+        await client.add(f"{worktree_path}/Munki")
         await client.commit(
             message=f"AutoPkg\\ {recipe_name}\\ {now.isoformat(timespec='seconds')}",
             all_changes=True,
