@@ -70,11 +70,11 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
             logger.error("Recipe %s failed: %s", recipe_name, e)
             return
 
-        status = await base_git_client.status(porcelain=True)
-        logger.debug(f"Status: {status}")
-        if not status.strip():
-            logger.info("No changes to commit for %s", recipe_name)
-            return
+        # status = await base_git_client.status(porcelain=True)
+        # logger.debug(f"Status: {status}")
+        # if not status.strip():
+        #     logger.info("No changes to commit for %s", recipe_name)
+        #     return
 
         await client.add("Munki/")
         await client.commit(
