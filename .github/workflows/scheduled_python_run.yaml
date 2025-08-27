@@ -84,3 +84,4 @@ jobs:
             AutoPkg/Reports/*
             autopkg_runner.log
             metadata_cache.json
+            Munki
