@@ -109,6 +109,7 @@ async def main() -> None:
     # )
     for recipe in recipe_paths:
         await process_recipe(recipe, git_repo_root)
+        break
 
 
 if __name__ == "__main__":
