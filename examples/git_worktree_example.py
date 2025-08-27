@@ -64,7 +64,8 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
     logger.info("Processing %s", recipe_name)
     async with worktree(base_git_client, worktree_path, branch) as client:
         try:
-            await Recipe(recipe).run()
+            results = await Recipe(recipe).run()
+            logger.debug("AutoPkg Run Results: %s", results)
             logger.info("Recipe %s complete", recipe_name)
         except Exception as e:
             logger.error("Recipe %s failed: %s", recipe_name, e)
