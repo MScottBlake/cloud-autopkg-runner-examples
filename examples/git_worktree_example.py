@@ -59,8 +59,10 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
     worktree_path = git_repo_root.parent / f"worktree-{recipe_name}-{now:%Y%m%d%H%M%S}"
     logger = logging_config.get_logger(__name__)
 
+    base_git_client = GitClient(git_repo_root)
+
     logger.info("Processing %s", recipe_name)
-    async with worktree(GitClient(git_repo_root), worktree_path, branch) as client:
+    async with worktree(base_git_client, worktree_path, branch) as client:
         try:
             await Recipe(recipe).run()
             logger.info("Recipe %s complete", recipe_name)
@@ -68,7 +70,7 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
             logger.error("Recipe %s failed: %s", recipe_name, e)
             return
 
-        status = await client.status(porcelain=True)
+        status = await base_git_client.status(porcelain=True)
         logger.debug(f"Status: {status}")
         if not status.strip():
             logger.info("No changes to commit for %s", recipe_name)
