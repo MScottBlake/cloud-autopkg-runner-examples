@@ -77,9 +77,24 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
         #     logger.info("No changes to commit for %s", recipe_name)
         #     return
 
-        await client.add("Munki/")
+        if not results["munki_imported_items"]:
+            logger.info("No changes to commit for %s", recipe_name)
+            return
+
+        munki_repo_path = str(git_repo_root / "Munki")
+        for item in results["munki_imported_items"]:
+            logger.info("Adding %s results to git index", recipe_name)
+            await client.add(
+                [
+                    f"{munki_repo_path}/icons/{item.get('icon_repo_path')}",
+                    f"{munki_repo_path}/pkgs/{item.get('pkg_repo_path')}",
+                    f"{munki_repo_path}/pkgsinfo/{item.get('pkginfo_path')}",
+                ]
+            )
+
+        # await client.add("Munki/")
         await client.commit(
-            message=f"AutoPkg\\ {recipe_name}\\ {now.isoformat(timespec='seconds')}"
+            message=f"AutoPkg {recipe_name} {now.isoformat(timespec='seconds')}"
         )
         # await client.push(branch=branch, set_upstream=True)
         # logger.info("Pushed branch %s", branch)
