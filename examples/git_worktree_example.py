@@ -65,8 +65,8 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
     async with worktree(base_git_client, worktree_path, branch) as client:
         try:
             results = await Recipe(recipe).run()
-            logger.debug("AutoPkg Recipe Run Results: %s", results)
-            logger.info("Recipe %s complete", recipe_name)
+            logger.debug("AutoPkg recipe run results: %s", results)
+            logger.info("Recipe run %s complete", recipe_name)
         except Exception as e:
             logger.error("Recipe %s failed: %s", recipe_name, e)
             return
@@ -83,7 +83,6 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
 
         munki_repo_path = str(git_repo_root / "Munki")
         for item in results["munki_imported_items"]:
-            logger.info("Adding %s results to git index", recipe_name)
             await client.add(
                 [
                     f"{munki_repo_path}/icons/{item.get('icon_repo_path')}",
@@ -104,7 +103,7 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
 
 async def main() -> None:
     autopkg_dir = Path("AutoPkg")
-    git_repo_root = Path()
+    git_repo_root = Path(os.environ.get("GITHUB_WORKSPACE", "."))
 
     settings = Settings()
     settings.cache_plugin = "json"
