@@ -61,15 +61,15 @@ wheels = [
 
 [[package]]
 name = "cloud-autopkg-runner"
-version = "0.18.1"
+version = "0.19.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pyyaml" },
     { name = "xattr" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/22/7c/91bd2197d6a900b3104388d3c076a574c4867e3e78be83b2f0117ab1c64b/cloud_autopkg_runner-0.18.1.tar.gz", hash = "sha256:5e9fa8c98764c8aa2c70c6a4e697aba9c3f151a6158cc94bb724daabf0a8895c", size = 610068, upload-time = "2025-08-26T07:31:39.565Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/03/b2/d96cc2513f0140563438e29839cdd5296a9a524f5a5281dc422930e0d4ad/cloud_autopkg_runner-0.19.1.tar.gz", hash = "sha256:6eba8b708d56245451c51ac418d99c99c871a093d2cdf74cad09b8565e0aaaa6", size = 630650, upload-time = "2025-09-01T06:09:20.164Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8e/9a/fd9174e3e01d9d14abec96499e5fce2eb4c8b1389889990ea31d92a71f9b/cloud_autopkg_runner-0.18.1-py3-none-any.whl", hash = "sha256:953bd58f82e806331fcf51a0a46057c554e92c7c2403c873c90e51e361e3ef3a", size = 56201, upload-time = "2025-08-26T07:31:38.291Z" },
+    { url = "https://files.pythonhosted.org/packages/6c/6b/e2e85fee5a26cd6deec1733d289ad7de3e68f2c7c0474742e289dba41c57/cloud_autopkg_runner-0.19.1-py3-none-any.whl", hash = "sha256:e75a07e842ad060946175a104a89c6383ba86341ea410b893edbc907604085f5", size = 62483, upload-time = "2025-09-01T06:09:19.116Z" },
 ]
 
 [[package]]
@@ -81,7 +81,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "cloud-autopkg-runner", specifier = ">=0.18.0" }]
+requires-dist = [{ name = "cloud-autopkg-runner", specifier = ">=0.19.1" }]
 
 [[package]]
 name = "pycparser"

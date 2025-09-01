@@ -1,4 +1,5 @@
 import asyncio
+from copy import deepcopy
 import json
 import os
 from collections.abc import AsyncGenerator
@@ -7,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from cloud_autopkg_runner import (
+    AutoPkgPrefs,
     GitClient,
     Recipe,
     RecipeFinder,
@@ -51,20 +53,26 @@ async def create_pull_request(branch: str, recipe: str) -> None:
         logger.error("Failed to create PR for %s: %s", recipe, e)
 
 
-async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
+async def process_recipe(
+    recipe: Path, git_repo_root: Path, autopkg_prefs: AutoPkgPrefs
+) -> None:
     """Run a recipe in its own branch and submit a PR if changes exist."""
+    settings = Settings()
+    logger = logging_config.get_logger(__name__)
+    base_git_client = GitClient(git_repo_root)
+
     recipe_name = recipe.stem
     now = datetime.now(timezone.utc)
     branch = f"autopkg/{recipe_name}-{now:%Y%m%d%H%M%S}"
     worktree_path = git_repo_root.parent / f"worktree-{recipe_name}-{now:%Y%m%d%H%M%S}"
-    logger = logging_config.get_logger(__name__)
-
-    base_git_client = GitClient(git_repo_root)
 
     logger.info("Processing %s", recipe_name)
     async with worktree(base_git_client, worktree_path, branch) as client:
         try:
-            results = await Recipe(recipe).run()
+            prefs_copy = deepcopy(autopkg_prefs)
+            prefs_copy.munki_repo = worktree_path / "Munki"
+
+            results = await Recipe(recipe, settings.report_dir, prefs_copy).run()
             logger.debug("AutoPkg recipe run results: %s", results)
             logger.info("Recipe run %s complete", recipe_name)
         except Exception as e:
@@ -102,6 +110,7 @@ async def process_recipe(recipe: Path, git_repo_root: Path) -> None:
 
 
 async def main() -> None:
+    autopkg_prefs = AutoPkgPrefs()
     autopkg_dir = Path("AutoPkg")
     git_repo_root = Path(os.environ.get("GITHUB_WORKSPACE", "."))
 
@@ -114,7 +123,7 @@ async def main() -> None:
 
     logging_config.initialize_logger(settings.verbosity_level, str(settings.log_file))
 
-    recipe_finder = RecipeFinder()
+    recipe_finder = RecipeFinder(autopkg_prefs)
     recipe_list = json.loads((autopkg_dir / "recipe_list.json").read_text())
     recipe_paths = [await recipe_finder.find_recipe(r) for r in recipe_list]
 
@@ -122,7 +131,7 @@ async def main() -> None:
     #     *(process_recipe(recipe, git_repo_root) for recipe in recipe_paths)
     # )
     for recipe in recipe_paths:
-        await process_recipe(recipe, git_repo_root)
+        await process_recipe(recipe, git_repo_root, autopkg_prefs)
         break
 
 
