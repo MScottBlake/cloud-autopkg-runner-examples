@@ -64,45 +64,10 @@ jobs:
           defaults write com.github.autopkg RECIPE_OVERRIDE_DIRS "${AUTOPKG_DIR}/Overrides"
           defaults write com.github.autopkg RECIPE_REPO_DIR "${AUTOPKG_DIR}/RecipeRepos"
 
-          mkdir -p "${MUNKI_DIR}/pkgs"
-
       - name: AutoPkg Repo Add
         run: |
           cat "AutoPkg/repo_list.txt" | xargs autopkg repo-add
           defaults read com.github.autopkg > /dev/null 2>&1
-
-      - name: Diagnose Git Ignore Rules
-        run: |
-          echo "--- Checking ignore status for Munki/icons/1Password.png ---"
-          git check-ignore -v Munki/icons/1Password.png || echo "Not explicitly ignored in local .gitignore or any known global/system ignores for this path."
-
-          echo ""
-          echo "--- Checking ignore status for Munki/pkgsinfo/apps/passwordmanagers/1Password-8.11.8.plist ---"
-          git check-ignore -v Munki/pkgsinfo/apps/passwordmanagers/1Password-8.11.8.plist || echo "Not explicitly ignored in local .gitignore or any known global/system ignores for this path."
-
-          echo ""
-          echo "--- Listing global gitignore if present ---"
-          GLOBAL_GITIGNORE=$(git config --get core.excludesfile)
-          if [ -n "$GLOBAL_GITIGNORE" ]; then
-            echo "Global gitignore found at: $GLOBAL_GITIGNORE"
-            if [ -f "$GLOBAL_GITIGNORE" ]; then
-              cat "$GLOBAL_GITIGNORE"
-            else
-              echo "Global gitignore file '$GLOBAL_GITIGNORE' does not exist."
-            fi
-          else
-            echo "No global gitignore file configured."
-          fi
-
-          echo ""
-          echo "--- Current working directory for context ---"
-          pwd
-
-          echo ""
-          echo "--- Listing files in Munki/icons and Munki/pkgsinfo for context ---"
-          ls -F Munki/icons/
-          ls -F Munki/pkgsinfo/
-          ls -F Munki/pkgsinfo/apps/
 
       - name: Run AutoPkg
         run: |

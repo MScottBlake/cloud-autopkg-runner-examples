@@ -1,5 +1,4 @@
 import asyncio
-from copy import deepcopy
 import json
 import os
 from collections.abc import AsyncGenerator
@@ -68,12 +67,10 @@ async def process_recipe(
 
     logger.info("Processing %s", recipe_name)
     async with worktree(base_git_client, worktree_path, branch) as client:
-        try:
-            prefs_copy = deepcopy(autopkg_prefs)
-            prefs_copy.munki_repo = worktree_path / "Munki"
-            munki_repo_path = str(prefs_copy.munki_repo)
+        autopkg_prefs.munki_repo = worktree_path / "Munki"
 
-            results = await Recipe(recipe, settings.report_dir, prefs_copy).run()
+        try:
+            results = await Recipe(recipe, settings.report_dir, autopkg_prefs).run()
             logger.debug("AutoPkg recipe run results: %s", results)
             logger.info("Recipe run %s complete", recipe_name)
         except Exception as e:
@@ -90,22 +87,23 @@ async def process_recipe(
             logger.info("No changes to commit for %s", recipe_name)
             return
 
+        munki_repo_path = str(autopkg_prefs.munki_repo)
         for item in results["munki_imported_items"]:
             await client.add(
                 [
                     f"{munki_repo_path}/icons/{item.get('icon_repo_path')}",
                     f"{munki_repo_path}/pkgsinfo/{item.get('pkginfo_path')}",
+                    # f"{munki_repo_path}/pkgs/{item.get('pkginfo_path')}",  # Gitignored
                 ]
             )
 
-        # await client.add("Munki/")
         await client.commit(
             message=f"AutoPkg {recipe_name} {now.isoformat(timespec='seconds')}"
         )
-        # await client.push(branch=branch, set_upstream=True)
-        # logger.info("Pushed branch %s", branch)
+        await client.push(branch=branch, set_upstream=True)
+        logger.info("Pushed branch %s", branch)
 
-        # await create_pull_request(branch, recipe_name)
+        await create_pull_request(branch, recipe_name)
 
 
 async def main() -> None:
@@ -126,12 +124,14 @@ async def main() -> None:
     recipe_list = json.loads((autopkg_dir / "recipe_list.json").read_text())
     recipe_paths = [await recipe_finder.find_recipe(r) for r in recipe_list]
 
-    # await asyncio.gather(
-    #     *(process_recipe(recipe, git_repo_root) for recipe in recipe_paths)
-    # )
-    for recipe in recipe_paths:
-        await process_recipe(recipe, git_repo_root, autopkg_prefs)
-        break
+    await asyncio.gather(
+        *(
+            process_recipe(recipe, git_repo_root, autopkg_prefs.clone())
+            for recipe in recipe_paths
+        )
+    )
+    # for recipe in recipe_paths:
+    #     await process_recipe(recipe, git_repo_root, autopkg_prefs.clone())
 
 
 if __name__ == "__main__":

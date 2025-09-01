@@ -57,8 +57,6 @@ jobs:
           defaults write com.github.autopkg MUNKI_REPO "${MUNKI_DIR}"
           defaults write com.github.autopkg RECIPE_OVERRIDE_DIRS "${AUTOPKG_DIR}/Overrides"
 
-          mkdir -p "${MUNKI_DIR}/pkgs"
-
       - name: AutoPkg Repo Add
         run: |
           cat "AutoPkg/repo_list.txt" | xargs autopkg repo-add
