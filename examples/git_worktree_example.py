@@ -94,7 +94,6 @@ async def process_recipe(
             await client.add(
                 [
                     f"{munki_repo_path}/icons/{item.get('icon_repo_path')}",
-                    f"{munki_repo_path}/pkgs/{item.get('pkg_repo_path')}",
                     f"{munki_repo_path}/pkgsinfo/{item.get('pkginfo_path')}",
                 ]
             )
