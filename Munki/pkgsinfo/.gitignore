@@ -5,5 +5,5 @@
 !.gitignore
 
 # Except a select few recipes
-!**/Firefox*
-!**/GoogleChrome*
+!apps/browsers/Firefox*
+!apps/browsers/GoogleChrome*
