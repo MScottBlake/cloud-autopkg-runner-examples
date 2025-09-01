@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>_metadata</key>
+	<dict>
+		<key>created_by</key>
+		<string>runner</string>
+		<key>creation_date</key>
+		<date>2025-09-01T18:13:19Z</date>
+		<key>munki_version</key>
+		<string>6.7.0.4731</string>
+		<key>os_version</key>
+		<string>15.5</string>
+	</dict>
+	<key>autoremove</key>
+	<false/>
+	<key>catalogs</key>
+	<array>
+		<string>testing</string>
+	</array>
+	<key>description</key>
+	<string>Mozilla Firefox is a free and open source web browser.</string>
+	<key>display_name</key>
+	<string>Mozilla Firefox</string>
+	<key>installer_item_hash</key>
+	<string>de41866c94d064a20cd787d89203c5f646fe0278da13c44605733ce205680965</string>
+	<key>installer_item_location</key>
+	<string>apps/browsers/Firefox-142.0.1.dmg</string>
+	<key>installer_item_size</key>
+	<integer>136298</integer>
+	<key>installer_type</key>
+	<string>copy_from_dmg</string>
+	<key>installs</key>
+	<array>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>org.mozilla.firefox</string>
+			<key>CFBundleName</key>
+			<string>Firefox</string>
+			<key>CFBundleShortVersionString</key>
+			<string>142.0.1</string>
+			<key>CFBundleVersion</key>
+			<string>14225.8.27</string>
+			<key>minosversion</key>
+			<string>10.15.0</string>
+			<key>path</key>
+			<string>/Applications/Firefox.app</string>
+			<key>type</key>
+			<string>application</string>
+			<key>version_comparison_key</key>
+			<string>CFBundleShortVersionString</string>
+		</dict>
+	</array>
+	<key>items_to_copy</key>
+	<array>
+		<dict>
+			<key>destination_path</key>
+			<string>/Applications</string>
+			<key>source_item</key>
+			<string>Firefox.app</string>
+		</dict>
+	</array>
+	<key>minimum_os_version</key>
+	<string>10.15.0</string>
+	<key>name</key>
+	<string>Firefox</string>
+	<key>unattended_install</key>
+	<true/>
+	<key>uninstall_method</key>
+	<string>remove_copied_items</string>
+	<key>uninstallable</key>
+	<true/>
+	<key>version</key>
+	<string>142.0.1</string>
+</dict>
+</plist>
