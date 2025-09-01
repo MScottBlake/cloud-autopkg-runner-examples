@@ -1,4 +1,11 @@
 # Ignore everything in this directory
 *
+
 # Except this file
 !.gitignore
+
+# Except a select few recipes
+!apps
+!apps/browsers
+!apps/browsers/Firefox*
+!apps/browsers/GoogleChrome*
