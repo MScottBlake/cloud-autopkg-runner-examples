@@ -70,6 +70,8 @@ jobs:
           defaults read com.github.autopkg > /dev/null 2>&1
 
       - name: Run AutoPkg
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           uv run examples/git_worktree_example.py
 
