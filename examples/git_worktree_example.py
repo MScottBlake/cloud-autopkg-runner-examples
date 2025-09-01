@@ -77,12 +77,6 @@ async def process_recipe(
             logger.error("Recipe %s failed: %s", recipe_name, e)
             return
 
-        # status = await base_git_client.status(porcelain=True)
-        # logger.debug(f"Status: {status}")
-        # if not status.strip():
-        #     logger.info("No changes to commit for %s", recipe_name)
-        #     return
-
         if not results["munki_imported_items"]:
             logger.info("No changes to commit for %s", recipe_name)
             return
@@ -100,7 +94,7 @@ async def process_recipe(
         await client.commit(
             message=f"AutoPkg {recipe_name} {now.isoformat(timespec='seconds')}"
         )
-        await client.push(branch=branch, set_upstream=True)
+        await client.push(branch=branch, remote="origin", set_upstream=True)
         logger.info("Pushed branch %s", branch)
 
         await create_pull_request(branch, recipe_name)
@@ -130,8 +124,6 @@ async def main() -> None:
             for recipe in recipe_paths
         )
     )
-    # for recipe in recipe_paths:
-    #     await process_recipe(recipe, git_repo_root, autopkg_prefs.clone())
 
 
 if __name__ == "__main__":
