@@ -71,6 +71,7 @@ async def process_recipe(
         try:
             prefs_copy = deepcopy(autopkg_prefs)
             prefs_copy.munki_repo = worktree_path / "Munki"
+            munki_repo_path = str(prefs_copy.munki_repo)
 
             results = await Recipe(recipe, settings.report_dir, prefs_copy).run()
             logger.debug("AutoPkg recipe run results: %s", results)
@@ -89,7 +90,6 @@ async def process_recipe(
             logger.info("No changes to commit for %s", recipe_name)
             return
 
-        munki_repo_path = str(git_repo_root / "Munki")
         for item in results["munki_imported_items"]:
             await client.add(
                 [
