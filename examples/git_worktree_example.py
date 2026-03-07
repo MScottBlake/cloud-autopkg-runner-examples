@@ -12,6 +12,7 @@ from cloud_autopkg_runner import (
     Recipe,
     RecipeFinder,
     Settings,
+    get_cache_plugin,
     logging_config,
     shell,
 )
@@ -114,16 +115,24 @@ async def main() -> None:
 
     logging_config.initialize_logger(settings.verbosity_level, str(settings.log_file))
 
+    logger = logging_config.get_logger(__name__)
+
     recipe_finder = RecipeFinder(autopkg_prefs)
     recipe_list = json.loads((autopkg_dir / "recipe_list.json").read_text())
     recipe_paths = [await recipe_finder.find_recipe(r) for r in recipe_list]
 
-    await asyncio.gather(
-        *(
-            process_recipe(recipe, git_repo_root, autopkg_prefs.clone())
-            for recipe in recipe_paths
+    cache_plugin = get_cache_plugin()
+    async with cache_plugin:
+        await asyncio.gather(
+            *(
+                process_recipe(recipe, git_repo_root, autopkg_prefs.clone())
+                for recipe in recipe_paths
+            )
         )
-    )
+        # Explicitly save the cache after all recipes are processed.
+        # The __aexit__ method of the context manager should handle saving automatically, but it does not somehow.
+        await cache_plugin.save()
+    logger.debug("All recipes processed, any updated metadata should have been saved by now.")
 
 
 if __name__ == "__main__":

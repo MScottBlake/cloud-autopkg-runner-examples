@@ -21,12 +21,12 @@ jobs:
         with:
           fetch-depth: 0 # Required for accurate diffs
 
-      - name: Setup Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            metadata_cache.json
-          key: cache-${{ hashFiles('uv.lock') }}
+      - name: Ensure metadata file exists
+        # needed because we'll be committing the updated metadata file to the repo after running AutoPkg
+        run: |
+          if [ ! -f metadata_cache.json ]; then
+            echo "{}" > metadata_cache.json
+          fi
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -71,6 +71,21 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           uv run examples/git_worktree_example.py
+
+      - name: Commit updated metadata
+        # committing the metadata file to the repo is easier than using GitHub Action cache because there is no update
+        # feature, see
+        # https://github.com/actions/cache/blob/main/tips-and-workarounds.md#update-a-cache
+        # https://github.com/actions/cache/issues/342#issuecomment-2773231159
+        run: |
+          git add metadata_cache.json
+
+          if git diff --cached --quiet; then
+            echo "No metadata changes detected."
+          else
+            git commit -m "Update metadata_cache.json"
+            git push
+          fi
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
