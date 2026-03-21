@@ -17,19 +17,19 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Required for accurate diffs
 
       - name: Setup Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             metadata_cache.json
           key: cache-${{ hashFiles('uv.lock') }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v7
         with:
           version: "latest"
           enable-cache: true
