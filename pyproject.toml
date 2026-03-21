@@ -2,9 +2,7 @@
 name = "cloud-autopkg-runner-examples"
 version = "0.0.0"
 requires-python = ">=3.10"
-dependencies = [
-    "cloud-autopkg-runner>=0.19.3",
-]
+dependencies = ["cloud-autopkg-runner>=0.25.1"]
 
 [tool.pyright]
 extraPaths = ["."]
@@ -12,3 +10,15 @@ include = ["."]
 typeCheckingMode = "strict"
 venvPath = "."
 venv = ".venv"
+
+[tool.cloud_autopkg_runner]
+autopkg_prefs_file = "AutoPkg/autopkg_prefs.json"
+recipe-list = "AutoPkg/recipe_list.json"
+cache-file = "metadata_cache.json"
+log-file = "autopkg_runner.log"
+report-dir = "AutoPkg/Reports"
+pre-processors = ["tech.flywire.PrivatePreProcessors/MunkiWorktreeCreator"]
+post-processors = [
+    "tech.flywire.PrivatePostProcessors/CacheCleaner",
+    "tech.flywire.PrivatePostProcessors/MunkiWorktreeCommitter",
+]

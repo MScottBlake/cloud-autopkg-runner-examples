@@ -1,0 +1,7 @@
+{
+  "CACHE_DIR": "AutoPkg/Cache",
+  "FAIL_RECIPES_WITHOUT_TRUST_INFO": true,
+  "MUNKI_REPO": "Munki",
+  "RECIPE_OVERRIDE_DIRS": "AutoPkg/Overrides",
+  "RECIPE_REPO_DIR": "AutoPkg/RecipeRepos"
+}
