@@ -21,9 +21,9 @@ jobs:
       - name: Setup Cache
         uses: actions/cache@v5
         with:
-          path: |
-            metadata_cache.json
-          key: cache-${{ hashFiles('uv.lock') }}
+          path: metadata_cache.json
+          key: metadata_cache-${{ github.run_id }}
+          restore-keys: metadata_cache-
 
       - name: Install uv
         uses: astral-sh/setup-uv@v7
